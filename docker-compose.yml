@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  bw.assessment.authentication.api:
+    image: ${DOCKER_REGISTRY-}bwassessmentauthenticationapi
+    build:
+      context: .
+      dockerfile: Authentication/BW.Assessment.Authentication.Api/Dockerfile
