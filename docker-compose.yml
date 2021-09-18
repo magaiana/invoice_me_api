@@ -6,3 +6,9 @@ services:
     build:
       context: .
       dockerfile: Authentication/BW.Assessment.Authentication.Api/Dockerfile
+
+  bw.wallet.wallet.api:
+    image: ${DOCKER_REGISTRY-}bwwalletwalletapi
+    build:
+      context: .
+      dockerfile: Wallet/BW.Assessment.Wallet.Api/Dockerfile
