@@ -5,14 +5,32 @@ services:
     image: ${DOCKER_REGISTRY-}bwassessmentauthenticationapi
     build:
       context: .
-      dockerfile: Authentication/BW.Assessment.Authentication.Api/Dockerfile
+      dockerfile: BW.Assessment.Authentication.Api/Dockerfile
+    environment:
+    - ASPNETCORE_ENVIRONMENT=Production
+    - ASPNETCORE_URLS=http://+:80;https://+:443
+    - ASPNETCORE_HTTPS_PORT=7001 
+    - ASPNETCORE_Kestrel__Certificates__Default__Password=P@ssword01
+    - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
     ports:
-      - "7000:80"
+        - "7000:80"
+        - "7001:443"
+    volumes:
+        - ~/.aspnet/https:/https:ro
 
-  bw.wallet.wallet.api:
-    image: ${DOCKER_REGISTRY-}bwwalletwalletapi
+  bw.assessment.wallet.api:
+    image: ${DOCKER_REGISTRY-}bwassessmentwalletapi
     build:
       context: .
-      dockerfile: Wallet/BW.Assessment.Wallet.Api/Dockerfile
+      dockerfile: BW.Assessment.Wallet.Api/Dockerfile
+    environment:
+    - ASPNETCORE_ENVIRONMENT=Production
+    - ASPNETCORE_URLS=http://+:80;https://+:443
+    - ASPNETCORE_HTTPS_PORT=8001 
+    - ASPNETCORE_Kestrel__Certificates__Default__Password=P@ssword01
+    - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
     ports:
-      - "8000:80"
+        - "8000:80"
+        - "8001:443"
+    volumes:
+        - ~/.aspnet/https:/https:ro

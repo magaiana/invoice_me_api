@@ -3,7 +3,7 @@
   <PropertyGroup Label="Globals">
     <ProjectVersion>2.1</ProjectVersion>
     <DockerTargetOS>Linux</DockerTargetOS>
-    <ProjectGuid>1e061249-aaa5-4345-b7a7-da0a37a719e6</ProjectGuid>
+    <ProjectGuid>1fca4250-6576-4079-a737-61c51a6b3b5b</ProjectGuid>
     <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
     <DockerServiceUrl>{Scheme}://localhost:{ServicePort}/swagger</DockerServiceUrl>
     <DockerServiceName>bw.assessment.authentication.api</DockerServiceName>
