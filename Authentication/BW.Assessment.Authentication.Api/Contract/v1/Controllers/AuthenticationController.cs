@@ -3,9 +3,9 @@ using BW.Assessment.Authentication.Api.Contract.v1.Request;
 using BW.Assessment.Authentication.Api.Contract.v1.Response;
 using BW.Assessment.Authentication.Core.Models;
 using BW.Assessment.Authentication.Core.Services;
-using BW.Assessment.Authentication.Infrastructure.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Threading.Tasks;
 
 namespace BW.Assessment.Authentication.Api.Controllers
@@ -15,13 +15,13 @@ namespace BW.Assessment.Authentication.Api.Controllers
 	[ApiController]
 	public class AuthenticationController : ControllerBase
 	{
-		private readonly IAuthenticationService _authenticationService;
 		private readonly IMapper _mapper;
+		private readonly IAuthenticationService _authenticationService;
 
 		public AuthenticationController(IAuthenticationService authenticationService, IMapper mapper)
 		{
-			_mapper = mapper;
-			_authenticationService = authenticationService;
+			_mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
+			_authenticationService = authenticationService ?? throw new ArgumentNullException(nameof(authenticationService));
 		}
 
 		[AllowAnonymous]

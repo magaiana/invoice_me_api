@@ -1,5 +1,6 @@
 ﻿using BW.Assessment.Authentication.Infrastructure.Models;
 using Microsoft.AspNetCore.Identity;
+using System;
 using System.Threading.Tasks;
 
 namespace BW.Assessment.Authentication.Infrastructure.Persistence.Repository
@@ -9,7 +10,7 @@ namespace BW.Assessment.Authentication.Infrastructure.Persistence.Repository
 		private readonly UserManager<IdentityUser> _userManager;
 		public AuthenticationRepository(UserManager<IdentityUser> userManager)
 		{
-			_userManager = userManager;
+			_userManager = userManager ?? throw new ArgumentNullException(nameof(userManager));
 		}
 
 		public async Task<UserResponseDto> Authenticate(string username, string password)
