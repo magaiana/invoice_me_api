@@ -30,14 +30,12 @@ namespace BW.Assessment.Authentication.Api.Utilities
 
 		public static void ConfigureJwt(this IServiceCollection services, IConfiguration configuration)
 		{
-			// Adding Authentication
 			services.AddAuthentication(options =>
 			{
 				options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
 				options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
 				options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
 			})
-			// Adding Jwt Bearer
 			.AddJwtBearer(options =>
 			{
 				options.SaveToken = true;
@@ -55,7 +53,7 @@ namespace BW.Assessment.Authentication.Api.Utilities
 		{
 			services.AddDbContext<AssessmentDbContext>(option =>
 				option.UseSqlServer(configuration.GetConnectionString("DbConnection")));
-				//option.UseInMemoryDatabase("InMemoryDbConnection"));
+			//option.UseInMemoryDatabase("InMemoryDbConnection"));
 
 			services.AddIdentity<IdentityUser, IdentityRole>()
 				.AddDefaultTokenProviders()
@@ -99,8 +97,13 @@ namespace BW.Assessment.Authentication.Api.Utilities
 			var userManager = services.GetRequiredService<UserManager<IdentityUser>>();
 
 			dbContext.Database.EnsureCreated();
-
 			await SeedDefaultData.SeedDataAsync(userManager);
+		}
+
+		public static void MigrationInitialisation(this IApplicationBuilder app)
+		{
+			using var serviceScope = app.ApplicationServices.CreateScope();
+			serviceScope.ServiceProvider.GetService<AssessmentDbContext>().Database.Migrate();
 		}
 	}
 }

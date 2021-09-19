@@ -36,6 +36,7 @@ namespace BW.Assessment.Authentication.Api
 				app.UseSwagger();
 				app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "BW.Assessment.Authentication.Api v1"));
 
+				app.MigrationInitialisation();
 				app.SeedIdentityDataAsync().Wait();
 			}
 
