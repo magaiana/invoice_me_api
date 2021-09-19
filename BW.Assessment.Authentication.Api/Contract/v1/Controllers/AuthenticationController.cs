@@ -25,10 +25,10 @@ namespace BW.Assessment.Authentication.Api.Controllers
 		}
 
 		[AllowAnonymous]
-		[HttpPost("Authenticate")]
+		[HttpGet("Authenticate")]
 		[ProducesResponseType(Microsoft.AspNetCore.Http.StatusCodes.Status200OK)]
 		[ProducesResponseType(Microsoft.AspNetCore.Http.StatusCodes.Status400BadRequest)]
-		[ApiConventionMethod(typeof(DefaultApiConventions), nameof(DefaultApiConventions.Post))]
+		[ApiConventionMethod(typeof(DefaultApiConventions), nameof(DefaultApiConventions.Get))]
 		public async Task<ActionResult<TokenResponse>> AuthenticateAsync([FromBody] TokenRequest request)
 		{
 			var response = await _authenticationService.Authenticate(_mapper.Map<TokenRequestDto>(request));

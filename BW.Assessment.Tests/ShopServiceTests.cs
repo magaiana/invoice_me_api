@@ -9,7 +9,7 @@ using Xunit;
 
 namespace BW.Assessment.Wallet.Tests
 {
-	public class WalletServiceTests
+	public class ShopServiceTests
 	{
 		[Fact]
 		public async void For_CreateWalletAsync_Given_ValidWalletdDetails_Should_Return_Success_Response()

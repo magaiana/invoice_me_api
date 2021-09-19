@@ -2,10 +2,10 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <UserSecretsId>137f351a-8b9a-4e19-a962-2d03f970339c</UserSecretsId>
+    <UserSecretsId>7cff617b-e5c8-4b0c-871e-6563def195ce</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
-    <DockerComposeProjectPath>..\..\docker-compose.dcproj</DockerComposeProjectPath>
-    <DockerfileContext>..\..</DockerfileContext>
+    <DockerfileContext>..\BW.Assessment</DockerfileContext>
+    <DockerComposeProjectPath>..\BW.Assessment\docker-compose.dcproj</DockerComposeProjectPath>
   </PropertyGroup>
 
   <ItemGroup>
@@ -31,6 +31,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BW.Assessment.Core\BW.Assessment.Core.csproj" />
+    <ProjectReference Include="..\BW.Assessment.Infrastructure\BW.Assessment.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

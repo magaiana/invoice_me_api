@@ -34,3 +34,21 @@ services:
         - "8001:443"
     volumes:
         - ~/.aspnet/https:/https:ro
+
+  bw.assessment.shop.api:
+    image: ${DOCKER_REGISTRY-}bwassessmentshopapi
+    build:
+      context: .
+      dockerfile: BW.Assessment.Shop.Api/Dockerfile
+    environment:
+    - ASPNETCORE_ENVIRONMENT=Production
+    - ASPNETCORE_URLS=http://+:80;https://+:443
+    - ASPNETCORE_HTTPS_PORT=9001 
+    - ASPNETCORE_Kestrel__Certificates__Default__Password=P@ssword01
+    - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
+    ports:
+        - "9000:80"
+        - "9001:443"
+    volumes:
+        - ~/.aspnet/https:/https:ro
+

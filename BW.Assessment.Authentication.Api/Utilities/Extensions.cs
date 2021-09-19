@@ -51,11 +51,11 @@ namespace BW.Assessment.Authentication.Api.Utilities
 			});
 		}
 
-		public static void RegisterDependencies(this IServiceCollection services)
+		public static void RegisterDependencies(this IServiceCollection services, IConfiguration configuration)
 		{
 			services.AddDbContext<AssessmentDbContext>(option =>
-				//option.UseSqlServer(configuration.GetConnectionString("DbConnection"))
-				option.UseInMemoryDatabase("InMemoryDbConnection"));
+				option.UseSqlServer(configuration.GetConnectionString("DbConnection")));
+				//option.UseInMemoryDatabase("InMemoryDbConnection"));
 
 			services.AddIdentity<IdentityUser, IdentityRole>()
 				.AddDefaultTokenProviders()
