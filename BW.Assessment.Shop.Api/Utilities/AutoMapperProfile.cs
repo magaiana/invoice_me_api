@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using BW.Assessment.Core.Models;
-using BW.Wallet.Wallet.Api.Contract.v1.Request;
+using BW.Assessment.Shop.Api.Contract.v1.Request;
 
-namespace BW.Wallet.Wallet.Api.Utilities
+namespace BW.Assessment.Shop.Api.Utilities
 {
 	public class AutoMapperProfile : Profile
 	{
@@ -10,6 +10,7 @@ namespace BW.Wallet.Wallet.Api.Utilities
 		{
 			CreateMap<ProductDto, Product>().ReverseMap();
 			CreateMap<AddStockRequest, StockDto>();
+			CreateMap<Stock, StockDto>().ReverseMap();
 		}
 	}
 }

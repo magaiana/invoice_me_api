@@ -4,8 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 using BW.Assessment.Core.Models;
 using BW.Assessment.Core.Services;
 using Microsoft.AspNetCore.Authorization;
-using BW.Wallet.Wallet.Api.Contract.v1.Request;
-using BW.Wallet.Wallet.Api.Contract.v1.Response;
+using BW.Assessment.Shop.Api.Contract.v1.Request;
+using BW.Assessment.Shop.Api.Contract.v1.Response;
 
 namespace BW.Wallet.Wallet.Api.Contract.v1.Controllers
 {
@@ -25,7 +25,6 @@ namespace BW.Wallet.Wallet.Api.Contract.v1.Controllers
 		}
 
 		[HttpPost]
-		[Authorize]
 		[Route("Add")]
 		[ProducesResponseType(Microsoft.AspNetCore.Http.StatusCodes.Status200OK)]
 		[ProducesResponseType(Microsoft.AspNetCore.Http.StatusCodes.Status400BadRequest)]
@@ -42,7 +41,6 @@ namespace BW.Wallet.Wallet.Api.Contract.v1.Controllers
 		}
 
 		[HttpGet]
-		[Authorize]
 		[Route("GetStock/{productId}")]
 		[ProducesResponseType(Microsoft.AspNetCore.Http.StatusCodes.Status200OK)]
 		[ProducesResponseType(Microsoft.AspNetCore.Http.StatusCodes.Status400BadRequest)]

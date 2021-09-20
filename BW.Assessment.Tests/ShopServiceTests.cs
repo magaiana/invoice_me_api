@@ -3,6 +3,7 @@ using BW.Assessment.Core.Models;
 using BW.Assessment.Core.Services;
 using BW.Assessment.Infrastructure.Models;
 using BW.Assessment.Infrastructure.Persistence.Repository;
+using BW.Assessment.Shop.Api.Utilities;
 using Moq;
 using System.Threading.Tasks;
 using Xunit;
@@ -11,108 +12,51 @@ namespace BW.Assessment.Wallet.Tests
 {
 	public class ShopServiceTests
 	{
-		[Fact]
-		public async void For_CreateWalletAsync_Given_ValidWalletdDetails_Should_Return_Success_Response()
+		private static IMapper _mapper;
+
+		public ShopServiceTests()
 		{
-			var requestDto = new WalletDetailsDto { Balance = 0, UserId = "absdsdsadsfsffsdfcdef", WalletId = 1 };
-			var request = new WalletDetails { Balance = 0, UserId = "absdsdsadsfsffsdfcdef", WalletId = 1 };
-			var mockWalletRepository = new Mock<IWalletRepository>();
-			var mockMapper = new Mock<IMapper>();
-			mockMapper.Setup(x => x.Map<WalletDetails>(It.IsAny<WalletDetailsDto>()))
-				.Returns((WalletDetailsDto source) => request);
+			if (_mapper == null)
+			{
+				var mappingConfig = new MapperConfiguration(mc =>
+				{
+					mc.AddProfile(new AutoMapperProfile());
+				});
+				IMapper mapper = mappingConfig.CreateMapper();
+				_mapper = mapper;
+			}
+		}
 
-			mockWalletRepository.Setup(ap => ap.CreateWallet(request)).Returns(Task.FromResult(true));
+		[Fact]
+		public async void For_GetStock_Given_ValidProductId_Should_Return_Stock()
+		{			
+			var stock = new Stock { Quantity = 50, ProductId = 1 };			
+			var mockShopRepository = new Mock<IShopRepository>();
 
-			var serviceInTest = new WalletService(mockWalletRepository.Object, mockMapper.Object);
-			var result = await serviceInTest.CreateWalletAsync(requestDto);
+			mockShopRepository.Setup(ap => ap.GetStock(It.IsAny<int>())).Returns(Task.FromResult(stock));
+
+			var serviceInTest = new ShopService(mockShopRepository.Object, _mapper);
+			var result = await serviceInTest.GetStock(It.IsAny<int>());
+
+			//Assert
+			Assert.Equal(expected: 50, actual: result.Quantity);
+		}
+
+		[Fact]
+		public async void For_UpdateStock_Given_ValidDetails_Should_Update_Stock_Successfully()
+		{
+			var stock = new Stock { Quantity = 50, ProductId = 1 };
+			var stockDto = new StockDto { Quantity = 50, ProductId = 1 };
+			var mockShopRepository = new Mock<IShopRepository>();
+
+			mockShopRepository.Setup(ap => ap.UpdateStock(stock)).Returns(Task.FromResult(true));
+			mockShopRepository.Setup(ap => ap.GetStock(It.IsAny<int>())).Returns(Task.FromResult(stock));
+
+			var serviceInTest = new ShopService(mockShopRepository.Object, _mapper);
+			var result = await serviceInTest.UpdateStock(stockDto);
 
 			//Assert
 			Assert.True(result);
-		}
-
-		[Fact]
-		public async void For_GetBalanceAsync_Given_InValidUserDetails_Should_Return_Fail_Response()
-		{
-			var requestDto = new WalletDetailsDto { Balance = 0, UserId = "absdsdsadsfsffsdfcdef" };
-			var request = new WalletDetails { Balance = 0, UserId = "absdsdsadsfsffsdfcdef" };
-			var mockWalletRepository = new Mock<IWalletRepository>();
-			var mockMapper = new Mock<IMapper>();
-			mockMapper.Setup(x => x.Map<WalletDetails>(It.IsAny<WalletDetailsDto>()))
-				.Returns((WalletDetailsDto source) => request);
-
-			mockWalletRepository.Setup(ap => ap.GetWalletBalanceForUserAsync(It.IsAny<string>())).Returns(Task.FromResult<WalletDetails>(null));
-
-			var serviceInTest = new WalletService(mockWalletRepository.Object, mockMapper.Object);
-			var result = await serviceInTest.GetWalletBalanceForUserAsync(It.IsAny<string>());
-
-			//Assert
-			Assert.Null(result);
-		}
-
-		[Fact]
-		public async void For_GetBalanceAsync_Given_ValidUserDetails_Should_Return_Fail_Response()
-		{
-			var userId = "absdsdsadsfsffsdfcdef";
-			var responseDto = new WalletDetailsDto { Balance = 0, UserId = "absdsdsadsfsffsdfcdef" };
-			var response = new WalletDetails { Balance = 9000, UserId = "absdsdsadsfsffsdfcdef" };
-			var mockWalletRepository = new Mock<IWalletRepository>();
-
-			var mockMapper = new Mock<IMapper>();
-			mockMapper.Setup(x => x.Map<WalletDetailsDto>(response))
-				.Returns((WalletDetailsDto source) => responseDto);
-
-			mockWalletRepository.Setup(ap => ap.GetWalletBalanceForUserAsync(userId)).Returns(Task.FromResult<WalletDetails>(response));
-
-			var serviceInTest = new WalletService(mockWalletRepository.Object, mockMapper.Object);
-			var result = await serviceInTest.GetWalletBalanceForUserAsync(userId);
-
-			//Assert
-			Assert.Equal(expected: 900, actual: result.Balance);
-		}
-
-		[Fact]
-		public async void For_DepositAsync_Given_InValidUserDetails_Should_Return_Fail_Response()
-		{
-			var userId = "absdsdsadsfsffsdfcdef";
-			var responseDto = new WalletDetailsDto { Balance = 0, UserId = "absdsdsadsfsffsdfcdef" };
-			var response = new WalletDetails { Balance = 9000, UserId = "absdsdsadsfsffsdfcdef" };
-			var mockWalletRepository = new Mock<IWalletRepository>();
-
-			var mockMapper = new Mock<IMapper>();
-			mockMapper.Setup(x => x.Map<WalletDetailsDto>(It.IsAny<WalletDetails>()))
-				.Returns((WalletDetails source) => responseDto);
-
-			mockWalletRepository.Setup(ap => ap.GetWalletBalanceForUserAsync(userId)).Returns(Task.FromResult<WalletDetails>(null));
-
-			var serviceInTest = new WalletService(mockWalletRepository.Object, mockMapper.Object);
-			var result = await serviceInTest.GetWalletBalanceForUserAsync(userId);
-
-			//Assert
-			Assert.Equal(expected: 900, actual: result.Balance);
-		}
-
-		[Fact]
-		public async void For_DepositAsync_Given_ValidUserDetails_Should_Return_Success_Response()
-		{
-			var userId = "absdsdsadsfsffsdfcdef";
-			var depositRequestDto = new DepositRequestDto { Amount = 1000, UserId = "absdsdsadsfsffsdfcdef" };
-			var request = new WalletDetails { Balance = 9000, UserId = "absdsdsadsfsffsdfcdef" };
-			var response = new WalletDetails { Balance = 9000, UserId = "absdsdsadsfsffsdfcdef" };
-			var mockWalletRepository = new Mock<IWalletRepository>();
-
-			var mockMapper = new Mock<IMapper>();
-			mockMapper.Setup(x => x.Map<WalletDetails>(It.IsAny<WalletDetailsDto>()))
-				.Returns((WalletDetails source) => response);
-
-			mockWalletRepository.Setup(ap => ap.GetWalletBalanceForUserAsync(userId)).Returns(Task.FromResult(response));
-
-			mockWalletRepository.Setup(ap => ap.UpdateWalletDetailsAsync(request)).Returns(Task.FromResult<bool>(true));
-
-			var serviceInTest = new WalletService(mockWalletRepository.Object, mockMapper.Object);
-			var result = await serviceInTest.GetWalletBalanceForUserAsync(userId);
-
-			//Assert
-			Assert.Equal(expected: 10000, actual: result.Balance);
 		}
 	}
 }

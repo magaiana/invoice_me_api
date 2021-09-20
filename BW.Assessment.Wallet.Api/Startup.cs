@@ -21,7 +21,7 @@ namespace BW.Assessment.Wallet.Api
 		{
 			services.AddAutoMapper(typeof(Startup));
 			services.AddControllers();
-			services.RegisterDependencies();
+			services.RegisterDependencies(Configuration);
 			services.ConfigureApiVersioning();
 			services.ConfigureJwt(Configuration);
 			services.AddSwaggerDoc();

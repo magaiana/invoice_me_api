@@ -13,7 +13,7 @@ namespace BW.Assessment.Authentication.Api
 			Log.Logger = new LoggerConfiguration()
 			.MinimumLevel.Information()
 			.WriteTo.Console(new RenderedCompactJsonFormatter())
-			.WriteTo.File("bw.assessment_logs.txt", rollingInterval: RollingInterval.Day)
+			.WriteTo.File("bw.assessment.auth_api_logs.txt", rollingInterval: RollingInterval.Day)
 			.CreateLogger();
 
 			try

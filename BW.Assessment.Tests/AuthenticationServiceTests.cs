@@ -3,6 +3,7 @@ using BW.Assessment.Core.Services;
 using BW.Assessment.Infrastructure.Configuration;
 using BW.Assessment.Infrastructure.Models;
 using BW.Assessment.Infrastructure.Persistence.Repository;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Moq;
 using System.Threading.Tasks;
@@ -27,10 +28,12 @@ namespace BW.Assessment.Authentication.Tests
 			var mockJwtSettings = new Mock<IOptions<JwtSettings>>();
 			var mockAuthRepository = new Mock<IAuthenticationRepository>();
 
+			ILogger<AuthenticationService> loggerMock = Mock.Of<ILogger<AuthenticationService>>();
+
 			mockJwtSettings.Setup(ap => ap.Value).Returns(settings);
 			mockAuthRepository.Setup(ap => ap.Authenticate(It.IsAny<string>(), It.IsAny<string>())).Returns(Task.FromResult<UserResponseDto>(null));
 
-			var serviceInTest = new AuthenticationService(mockAuthRepository.Object, mockJwtSettings.Object, null);
+			var serviceInTest = new AuthenticationService(mockAuthRepository.Object, mockJwtSettings.Object, loggerMock);
 			var result = await serviceInTest.Authenticate(request);
 
 			//Assert
@@ -45,11 +48,12 @@ namespace BW.Assessment.Authentication.Tests
 
 			var mockJwtSettings = new Mock<IOptions<JwtSettings>>();
 			var mockAuthRepository = new Mock<IAuthenticationRepository>();
+			ILogger<AuthenticationService> loggerMock = Mock.Of<ILogger<AuthenticationService>>();
 
 			mockJwtSettings.Setup(ap => ap.Value).Returns(settings);
 			mockAuthRepository.Setup(ap => ap.Authenticate(request.Username, request.Password)).Returns(Task.FromResult<UserResponseDto>(response));
 
-			var serviceInTest = new AuthenticationService(mockAuthRepository.Object, mockJwtSettings.Object, null);
+			var serviceInTest = new AuthenticationService(mockAuthRepository.Object, mockJwtSettings.Object, loggerMock);
 			var result = await serviceInTest.Authenticate(request);
 
 			//Assert

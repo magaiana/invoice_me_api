@@ -10,6 +10,7 @@ namespace BW.Assessment.Core.Services
 	{
 		private readonly IMapper _mapper;
 		private readonly IWalletRepository _walletRepository;
+
 		public WalletService(IWalletRepository walletRepository, IMapper mapper)
 		{
 			_mapper = mapper;
@@ -18,7 +19,8 @@ namespace BW.Assessment.Core.Services
 
 		public async Task<bool> CreateWalletAsync(WalletDetailsDto wallet)
 		{
-			var result = await _walletRepository.CreateWallet(_mapper.Map<WalletDetailsDto, WalletDetails>(wallet));
+			var walletDto = _mapper.Map<WalletDetailsDto, WalletDetails>(wallet);
+			var result = await _walletRepository.CreateWallet(walletDto);
 			return result;
 		}
 

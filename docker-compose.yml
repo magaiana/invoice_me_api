@@ -2,11 +2,10 @@ version: '3.4'
 
 services:
   ms-sql-server:
-    image: mcr.microsoft.com/mssql/server:2017-latest-ubuntu
+    image: mcr.microsoft.com/mssql/server:2019-latest
     environment:
       ACCEPT_EULA: "Y"
       SA_PASSWORD: "P@55w0rd2021"
-      MSSQL_PID: Express
     ports:
       - "1433:1433"
 
@@ -56,8 +55,7 @@ services:
     - ASPNETCORE_Kestrel__Certificates__Default__Password=P@ssword01
     - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
     ports:
-        - "9000:80"
-        - "9001:443"
+        - "9100:80"
+        - "9101:443"
     volumes:
         - ~/.aspnet/https:/https:ro
-

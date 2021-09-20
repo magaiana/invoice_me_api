@@ -1,4 +1,4 @@
-﻿namespace BW.Wallet.Wallet.Api.Contract.v1.Response
+﻿namespace BW.Assessment.Shop.Api.Contract.v1.Response
 {
 	public class StockResponse
 	{

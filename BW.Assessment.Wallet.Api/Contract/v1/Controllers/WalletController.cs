@@ -25,8 +25,10 @@ namespace BW.Wallet.Wallet.Api.Contract.v1.Controllers
 		}
 
 		[HttpPost]
-		[Authorize]
 		[Route("Create/{userId}")]
+		[ProducesResponseType(Microsoft.AspNetCore.Http.StatusCodes.Status200OK)]
+		[ProducesResponseType(Microsoft.AspNetCore.Http.StatusCodes.Status400BadRequest)]
+		[ApiConventionMethod(typeof(DefaultApiConventions), nameof(DefaultApiConventions.Post))]
 		public async Task<IActionResult> CreateWallet([FromBody] CreateWalletRequest request)
 		{
 			var requestDto = _mapper.Map<WalletDetailsDto>(request);
@@ -41,6 +43,9 @@ namespace BW.Wallet.Wallet.Api.Contract.v1.Controllers
 
 		[HttpPut]
 		[Route("Deposit")]
+		[ProducesResponseType(Microsoft.AspNetCore.Http.StatusCodes.Status200OK)]
+		[ProducesResponseType(Microsoft.AspNetCore.Http.StatusCodes.Status400BadRequest)]
+		[ApiConventionMethod(typeof(DefaultApiConventions), nameof(DefaultApiConventions.Put))]
 		public async Task<IActionResult> DepositIntoWallet([FromBody] DepositRequest request)
 		{
 			var success = await _walletService.DepositIntoWalletAsync(_mapper.Map<DepositRequest, DepositRequestDto>(request));
@@ -54,6 +59,9 @@ namespace BW.Wallet.Wallet.Api.Contract.v1.Controllers
 
 		[HttpGet]
 		[Route("Balance/{userId}")]
+		[ProducesResponseType(Microsoft.AspNetCore.Http.StatusCodes.Status200OK)]
+		[ProducesResponseType(Microsoft.AspNetCore.Http.StatusCodes.Status400BadRequest)]
+		[ApiConventionMethod(typeof(DefaultApiConventions), nameof(DefaultApiConventions.Get))]
 		public async Task<ActionResult<WalletBalanceResponse>> QueryBalance(string userId)
 		{			
 			var wallet = await _walletService.GetWalletBalanceForUserAsync(userId);
@@ -67,6 +75,9 @@ namespace BW.Wallet.Wallet.Api.Contract.v1.Controllers
 
 		[HttpGet]
 		[Route("Withdraw/{userId}")]
+		[ProducesResponseType(Microsoft.AspNetCore.Http.StatusCodes.Status200OK)]
+		[ProducesResponseType(Microsoft.AspNetCore.Http.StatusCodes.Status400BadRequest)]
+		[ApiConventionMethod(typeof(DefaultApiConventions), nameof(DefaultApiConventions.Get))]
 		public async Task<ActionResult<WalletBalanceResponse>> RequestWithdrawal([FromBody] WithdrawalRequest request)
 		{
 			var success = await _walletService.RequestWithdrawal(_mapper.Map<WithdrawalRequest, WithdrawalRequestDto>(request));

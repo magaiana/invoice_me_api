@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace BW.Wallet.Wallet.Api.Contract.v1.Request
+namespace BW.Assessment.Shop.Api.Contract.v1.Request
 {
 	public class AddStockRequest
 	{

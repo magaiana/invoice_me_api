@@ -1,13 +1,8 @@
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Serilog;
 using Serilog.Formatting.Compact;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace BW.Assessment.Shop.Api
 {
@@ -18,7 +13,7 @@ namespace BW.Assessment.Shop.Api
 			Log.Logger = new LoggerConfiguration()
 			.MinimumLevel.Information()
 			.WriteTo.Console(new RenderedCompactJsonFormatter())
-			.WriteTo.File("bw.assessment_logs.txt", rollingInterval: RollingInterval.Day)
+			.WriteTo.File("bw.assessment.shop_api_logs.txt", rollingInterval: RollingInterval.Day)
 			.CreateLogger();
 
 			try

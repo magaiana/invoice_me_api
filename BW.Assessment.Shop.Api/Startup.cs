@@ -1,11 +1,10 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
-using BW.Wallet.Wallet.Api.Utilities;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using BW.Assessment.Infrastructure.Configuration;
-
+using BW.Assessment.Shop.Api.Utilities;
 
 namespace BW.Assessment.Shop.Api
 {
@@ -21,7 +20,7 @@ namespace BW.Assessment.Shop.Api
 		{
 			services.AddAutoMapper(typeof(Startup));
 			services.AddControllers();
-			services.RegisterDependencies();
+			services.RegisterDependencies(Configuration);
 			services.ConfigureApiVersioning();
 			services.ConfigureJwt(Configuration);
 			services.AddSwaggerDoc();

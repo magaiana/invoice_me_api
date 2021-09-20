@@ -26,14 +26,12 @@ namespace BW.Wallet.Wallet.Api.Utilities
 
 		public static void ConfigureJwt(this IServiceCollection services, IConfiguration configuration)
 		{
-			// Adding Authentication
 			services.AddAuthentication(options =>
 			{
 				options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
 				options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
 				options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
 			})
-			// Adding Jwt Bearer
 			.AddJwtBearer(options =>
 			{
 				options.SaveToken = true;
@@ -47,11 +45,11 @@ namespace BW.Wallet.Wallet.Api.Utilities
 			});
 		}
 
-		public static void RegisterDependencies(this IServiceCollection services)
+		public static void RegisterDependencies(this IServiceCollection services, IConfiguration configuration)
 		{
 			services.AddDbContext<AssessmentDbContext>(option =>
-				//option.UseSqlServer(configuration.GetConnectionString("DbConnection"))
-				option.UseInMemoryDatabase("InMemoryDbConnection"));
+				option.UseSqlServer(configuration.GetConnectionString("DbConnection")));
+				//option.UseInMemoryDatabase("InMemoryDbConnection"));
 
 			services.AddScoped<IWalletService, WalletService>();
 			services.AddScoped<IWalletRepository, WalletRepository>();
@@ -61,8 +59,7 @@ namespace BW.Wallet.Wallet.Api.Utilities
 		{
 			services.AddSwaggerGen(c =>
 			{
-				c.SwaggerDoc("v1", new OpenApiInfo { Title = "Betway Wallet Authentication Api", Version = "v1" });
-				// To Enable authorization using Swagger (JWT)  
+				c.SwaggerDoc("v1", new OpenApiInfo { Title = "Betway Assessment Wallet Api", Version = "v1" });
 				c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
 				{
 					Name = "Authorization",

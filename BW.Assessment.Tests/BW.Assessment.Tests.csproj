@@ -23,6 +23,8 @@
   <ItemGroup>
     <ProjectReference Include="..\BW.Assessment.Authentication.Api\BW.Assessment.Authentication.Api.csproj" />
     <ProjectReference Include="..\BW.Assessment.Infrastructure\BW.Assessment.Infrastructure.csproj" />
+    <ProjectReference Include="..\BW.Assessment.Shop.Api\BW.Assessment.Shop.Api.csproj" />
+    <ProjectReference Include="..\BW.Assessment.Wallet.Api\BW.Assessment.Wallet.Api.csproj" />
   </ItemGroup>
 
 </Project>

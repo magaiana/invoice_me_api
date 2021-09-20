@@ -1,16 +1,17 @@
 ﻿using AutoMapper;
 using BW.Assessment.Core.Models;
+using BW.Assessment.Infrastructure.Models;
 using BW.Wallet.Wallet.Api.Contract.v1.Request;
 using BW.Wallet.Wallet.Api.Contract.v1.Response;
 
-namespace BW.Wallet.Wallet.Api.Utilities
+namespace BW.Assessment.Wallet.Api.Utilities
 {
 	public class AutoMapperProfile : Profile
 	{
 		public AutoMapperProfile()
 		{
-			CreateMap<DepositRequestDto, DepositRequest>();
-			CreateMap<CreateWalletRequest, WalletDetailsDto>();			
+			CreateMap<DepositRequestDto, DepositRequest>();			
+			CreateMap<WalletDetailsDto, WalletDetails>().ReverseMap();
 			CreateMap<WalletDetailsDto, WalletBalanceResponse>();
 		}
 	}
