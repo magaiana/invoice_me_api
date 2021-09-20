@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace BW.Assessment.Infrastructure.Persistence.Repository
 {
-	public interface IAuthenticationRepository
+	public interface IUserRepository
 	{
 		Task<UserResponseDto> Authenticate(string username, string password);
 	} 

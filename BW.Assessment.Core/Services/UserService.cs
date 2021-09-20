@@ -13,12 +13,12 @@ using Microsoft.Extensions.Logging;
 
 namespace BW.Assessment.Core.Services
 {
-	public class AuthenticationService : IAuthenticationService
+	public class UserService : IUserService
 	{
 		private readonly JwtSettings _token;
-		private readonly ILogger<AuthenticationService> _logger;
-		private readonly IAuthenticationRepository _authenticationRepository;
-		public AuthenticationService(IAuthenticationRepository authenticationRepository, IOptions<JwtSettings> options, ILogger<AuthenticationService> logger)
+		private readonly ILogger<UserService> _logger;
+		private readonly IUserRepository _authenticationRepository;
+		public UserService(IUserRepository authenticationRepository, IOptions<JwtSettings> options, ILogger<UserService> logger)
 		{
 			_logger = logger ?? throw new ArgumentNullException(nameof(logger));
 			_authenticationRepository = authenticationRepository  ?? throw new ArgumentNullException(nameof(authenticationRepository));

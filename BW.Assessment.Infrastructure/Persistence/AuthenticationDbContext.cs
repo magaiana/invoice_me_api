@@ -6,7 +6,7 @@ using BW.Assessment.Core.Models;
 
 namespace BW.Assessment.Infrastructure.Persistence
 {
-	public class AssessmentDbContext : IdentityDbContext<IdentityUser>
+	public class AssessmentDbContext : IdentityDbContext<UserProfile>
 	{
 		public AssessmentDbContext(DbContextOptions<AssessmentDbContext> options) : base(options)
 		{ }

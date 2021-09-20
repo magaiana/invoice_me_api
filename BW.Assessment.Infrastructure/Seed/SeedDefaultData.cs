@@ -1,23 +1,22 @@
-﻿using Microsoft.AspNetCore.Identity;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
+using BW.Assessment.Infrastructure.Models;
 
 namespace BW.Assessment.Infrastructure.Seed
 {
 	public class SeedDefaultData
 	{
-		public static async Task SeedDataAsync(UserManager<IdentityUser> userManager)
+		public static async Task SeedDataAsync(UserManager<UserProfile> userManager)
 		{
             var adminUserName = "admin@mail.com";
             var defaultPassword = "P@ssword01";
-            var adminUser = new IdentityUser
+            var adminUser = new UserProfile
             {
                 UserName = adminUserName,
                 Email = adminUserName,
-                EmailConfirmed = true,
+                EmailConfirmed = true,                
             };
-
-            var ee = await userManager.CreateAsync(adminUser, defaultPassword);
-            adminUser = await userManager.FindByEmailAsync(adminUserName);
+            await userManager.CreateAsync(adminUser, defaultPassword);            
         }
 	}
 }

@@ -3,7 +3,7 @@ using BW.Assessment.Core.Models;
 
 namespace BW.Assessment.Core.Services
 {
-	public interface IAuthenticationService
+	public interface IUserService
 	{
 		Task<TokenResponseDto> Authenticate(TokenRequestDto request);
 	}

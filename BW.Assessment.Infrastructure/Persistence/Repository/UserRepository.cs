@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 
 namespace BW.Assessment.Infrastructure.Persistence.Repository
 {
-	public class AuthenticationRepository : IAuthenticationRepository
+	public class UserRepository : IUserRepository
 	{
 		private readonly UserManager<IdentityUser> _userManager;
-		public AuthenticationRepository(UserManager<IdentityUser> userManager)
+		public UserRepository(UserManager<IdentityUser> userManager)
 		{
 			_userManager = userManager ?? throw new ArgumentNullException(nameof(userManager));
 		}

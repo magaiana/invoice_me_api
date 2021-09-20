@@ -13,15 +13,15 @@ namespace BW.Assessment.Authentication.Api.Controllers
 	[ApiVersion("1")]
 	[Route("api/v{version:apiVersion}/[controller]")]
 	[ApiController]
-	public class AuthenticationController : ControllerBase
+	public class UserController : ControllerBase
 	{
 		private readonly IMapper _mapper;
-		private readonly IAuthenticationService _authenticationService;
+		private readonly IUserService _userService;
 
-		public AuthenticationController(IAuthenticationService authenticationService, IMapper mapper)
+		public UserController(IUserService authenticationService, IMapper mapper)
 		{
 			_mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
-			_authenticationService = authenticationService ?? throw new ArgumentNullException(nameof(authenticationService));
+			_userService = authenticationService ?? throw new ArgumentNullException(nameof(authenticationService));
 		}
 
 		[AllowAnonymous]
@@ -31,12 +31,12 @@ namespace BW.Assessment.Authentication.Api.Controllers
 		[ApiConventionMethod(typeof(DefaultApiConventions), nameof(DefaultApiConventions.Get))]
 		public async Task<ActionResult<TokenResponse>> AuthenticateAsync([FromBody] TokenRequest request)
 		{
-			var response = await _authenticationService.Authenticate(_mapper.Map<TokenRequestDto>(request));
+			var response = await _userService.Authenticate(_mapper.Map<TokenRequestDto>(request));
 			if(response == null)
 			{
 				return NotFound("Invalid username or password");
 			}
-			return Ok(response);
+			return Ok(_mapper.Map<>);
 		}
 	}
 }

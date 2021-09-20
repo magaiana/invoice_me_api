@@ -26,7 +26,7 @@ namespace BW.Assessment.Authentication.Tests
 		{
 			var request = new TokenRequestDto { Username = "abcdef", Password = "abcdef" };
 			var mockJwtSettings = new Mock<IOptions<JwtSettings>>();
-			var mockAuthRepository = new Mock<IAuthenticationRepository>();
+			var mockAuthRepository = new Mock<IUserRepository>();
 
 			ILogger<AuthenticationService> loggerMock = Mock.Of<ILogger<AuthenticationService>>();
 
@@ -47,7 +47,7 @@ namespace BW.Assessment.Authentication.Tests
 			var response = new UserResponseDto("aaaaabbbbbbbbccc1111111", "admin@mail.com");
 
 			var mockJwtSettings = new Mock<IOptions<JwtSettings>>();
-			var mockAuthRepository = new Mock<IAuthenticationRepository>();
+			var mockAuthRepository = new Mock<IUserRepository>();
 			ILogger<AuthenticationService> loggerMock = Mock.Of<ILogger<AuthenticationService>>();
 
 			mockJwtSettings.Setup(ap => ap.Value).Returns(settings);

@@ -1,18 +1,19 @@
-﻿using System.Threading.Tasks;
+﻿using System.Text;
+using System.Threading.Tasks;
 using Microsoft.OpenApi.Models;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc;
+using BW.Assessment.Core.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.Extensions.DependencyInjection;
-using BW.Assessment.Infrastructure.Seed;
-using BW.Assessment.Core.Services;
-using Microsoft.AspNetCore.Mvc;
-using BW.Assessment.Infrastructure.Persistence.Repository;
-using BW.Assessment.Infrastructure.Persistence;
-using Microsoft.Extensions.Configuration;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using System.Text;
+using BW.Assessment.Infrastructure.Seed;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using BW.Assessment.Infrastructure.Persistence;
+using BW.Assessment.Infrastructure.Persistence.Repository;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using BW.Assessment.Infrastructure.Models;
 
 namespace BW.Assessment.Authentication.Api.Utilities
 {
@@ -55,10 +56,10 @@ namespace BW.Assessment.Authentication.Api.Utilities
 				option.UseSqlServer(configuration.GetConnectionString("DbConnection")));
 			//option.UseInMemoryDatabase("InMemoryDbConnection"));
 
-			services.AddIdentity<IdentityUser, IdentityRole>()
+			services.AddIdentity<UserProfile, IdentityRole>()
 				.AddDefaultTokenProviders()
-				.AddUserManager<UserManager<IdentityUser>>()
-				.AddSignInManager<SignInManager<IdentityUser>>()
+				.AddUserManager<UserManager<UserProfile>>()
+				.AddSignInManager<SignInManager<UserProfile>>()
 				.AddEntityFrameworkStores<AssessmentDbContext>();
 
 			services.Configure<IdentityOptions>(
@@ -76,8 +77,8 @@ namespace BW.Assessment.Authentication.Api.Utilities
 					options.Password.RequiredUniqueChars = 1;
 				});
 
-			services.AddScoped<IAuthenticationService, AuthenticationService>();
-			services.AddScoped<IAuthenticationRepository, AuthenticationRepository>();
+			services.AddScoped(typeof(IUserService), typeof(UserService));
+			services.AddScoped(typeof(IUserRepository), typeof(UserRepository));
 		}
 
 		public static void AddSwaggerDoc(this IServiceCollection services)
@@ -94,7 +95,7 @@ namespace BW.Assessment.Authentication.Api.Utilities
 				builder.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope();
 			var services = serviceScope.ServiceProvider;
 			var dbContext = services.GetRequiredService<AssessmentDbContext>();
-			var userManager = services.GetRequiredService<UserManager<IdentityUser>>();
+			var userManager = services.GetRequiredService<UserManager<UserProfile>>();
 
 			dbContext.Database.EnsureCreated();
 			await SeedDefaultData.SeedDataAsync(userManager);
