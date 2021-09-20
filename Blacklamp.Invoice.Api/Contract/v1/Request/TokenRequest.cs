@@ -1,0 +1,20 @@
+﻿using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace Blacklamp.Invoice.Authentication.Api.Contract.v1.Request
+{
+	public class TokenRequest
+	{
+		[Required]
+        [JsonProperty("username")]
+        public string Username { get; set; }
+
+        [Required]
+        [JsonProperty("password")]
+        public string Password { get; set; }
+	}
+}
