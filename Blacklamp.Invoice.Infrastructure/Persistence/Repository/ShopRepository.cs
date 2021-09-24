@@ -6,16 +6,16 @@ namespace Blacklamp.Invoice.Infrastructure.Persistence.Repository
 {
 	public class ShopRepository : IShopRepository
 	{
-		private readonly AssessmentDbContext _dbContext;
-		public ShopRepository(AssessmentDbContext dbContext)
+		private readonly InvoiceDbContext _dbContext;
+		public ShopRepository(InvoiceDbContext dbContext)
 		{
 			_dbContext = dbContext;
 		}
 
 		public async Task<Stock> GetStock(int productId)
 		{
-			var stock = await _dbContext.Stocks.FirstOrDefaultAsync(x => x.Product.Id == productId);
-			return stock;
+			//var stock = await _dbContext.Stocks.FirstOrDefaultAsync(x => x.Product.Id == productId);
+			return null;
 		}
 
 		public async Task<bool> UpdateStock(Stock stock)

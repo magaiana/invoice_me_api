@@ -21,7 +21,7 @@ namespace Blacklamp.Invoice.Core.Services
 		public UserService(IUserRepository authenticationRepository, IOptions<JwtSettings> options, ILogger<UserService> logger)
 		{
 			_logger = logger ?? throw new ArgumentNullException(nameof(logger));
-			_authenticationRepository = authenticationRepository  ?? throw new ArgumentNullException(nameof(authenticationRepository));
+			_authenticationRepository = authenticationRepository ?? throw new ArgumentNullException(nameof(authenticationRepository));
 			_token = options.Value ?? throw new ArgumentNullException(nameof(options.Value));
 		}
 
@@ -33,7 +33,7 @@ namespace Blacklamp.Invoice.Core.Services
 				if (user != null)
 				{
 					var token = GenerateJwtToken(user);
-					return new TokenResponseDto();
+					return new TokenResponseDto(user.UserName, user.Email, token, true);
 				}
 				return null;
 			}

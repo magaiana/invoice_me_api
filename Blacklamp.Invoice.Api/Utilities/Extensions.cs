@@ -52,7 +52,7 @@ namespace Blacklamp.Invoice.Authentication.Api.Utilities
 
 		public static void RegisterDependencies(this IServiceCollection services, IConfiguration configuration)
 		{
-			services.AddDbContext<AssessmentDbContext>(option =>
+			services.AddDbContext<InvoiceDbContext>(option =>
 				option.UseSqlServer(configuration.GetConnectionString("DbConnection")));
 			//option.UseInMemoryDatabase("InMemoryDbConnection"));
 
@@ -60,7 +60,7 @@ namespace Blacklamp.Invoice.Authentication.Api.Utilities
 				.AddDefaultTokenProviders()
 				.AddUserManager<UserManager<UserProfile>>()
 				.AddSignInManager<SignInManager<UserProfile>>()
-				.AddEntityFrameworkStores<AssessmentDbContext>();
+				.AddEntityFrameworkStores<InvoiceDbContext>();
 
 			services.Configure<IdentityOptions>(
 				options =>
@@ -94,7 +94,7 @@ namespace Blacklamp.Invoice.Authentication.Api.Utilities
 			using var serviceScope =
 				builder.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope();
 			var services = serviceScope.ServiceProvider;
-			var dbContext = services.GetRequiredService<AssessmentDbContext>();
+			var dbContext = services.GetRequiredService<InvoiceDbContext>();
 			var userManager = services.GetRequiredService<UserManager<UserProfile>>();
 
 			dbContext.Database.EnsureCreated();
@@ -104,7 +104,7 @@ namespace Blacklamp.Invoice.Authentication.Api.Utilities
 		public static void MigrationInitialisation(this IApplicationBuilder app)
 		{
 			using var serviceScope = app.ApplicationServices.CreateScope();
-			serviceScope.ServiceProvider.GetService<AssessmentDbContext>().Database.Migrate();
+			serviceScope.ServiceProvider.GetService<InvoiceDbContext>().Database.Migrate();
 		}
 	}
 }

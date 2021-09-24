@@ -1,0 +1,341 @@
+2021-09-24 19:25:03.015 +02:00 [INF] Starting Web Host
+2021-09-24 19:25:04.305 +02:00 [INF] User profile is available. Using 'C:\Users\vmaga\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-09-24 19:25:05.686 +02:00 [WRN] No type was specified for the decimal property 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'.
+2021-09-24 19:25:05.687 +02:00 [WRN] No type was specified for the decimal property 'Balance' on entity type 'WalletDetails'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'.
+2021-09-24 19:25:05.758 +02:00 [INF] Entity Framework Core 5.0.10 initialized 'InvoiceDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-09-24 19:36:54.329 +02:00 [INF] Starting Web Host
+2021-09-24 19:36:56.661 +02:00 [INF] User profile is available. Using 'C:\Users\vmaga\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-09-24 19:36:58.137 +02:00 [WRN] No type was specified for the decimal property 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'.
+2021-09-24 19:36:58.137 +02:00 [WRN] No type was specified for the decimal property 'Balance' on entity type 'WalletDetails'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'.
+2021-09-24 19:36:58.263 +02:00 [INF] Entity Framework Core 5.0.10 initialized 'InvoiceDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-09-24 19:59:44.347 +02:00 [INF] Starting Web Host
+2021-09-24 19:59:45.485 +02:00 [INF] User profile is available. Using 'C:\Users\vmaga\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-09-24 19:59:46.265 +02:00 [WRN] No type was specified for the decimal property 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'.
+2021-09-24 19:59:46.266 +02:00 [WRN] No type was specified for the decimal property 'Balance' on entity type 'WalletDetails'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'.
+2021-09-24 19:59:46.338 +02:00 [INF] Entity Framework Core 5.0.10 initialized 'InvoiceDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-09-24 19:59:47.419 +02:00 [INF] Executed DbCommand (715ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+CREATE DATABASE [InvoiceDb];
+2021-09-24 19:59:47.606 +02:00 [INF] Executed DbCommand (185ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [InvoiceDb] SET READ_COMMITTED_SNAPSHOT ON;
+END;
+2021-09-24 19:59:47.647 +02:00 [INF] Executed DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2021-09-24 19:59:47.739 +02:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [__EFMigrationsHistory] (
+    [MigrationId] nvarchar(150) NOT NULL,
+    [ProductVersion] nvarchar(32) NOT NULL,
+    CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+);
+2021-09-24 19:59:47.743 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2021-09-24 19:59:47.761 +02:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2021-09-24 19:59:47.768 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2021-09-24 19:59:47.795 +02:00 [INF] No migrations were applied. The database is already up to date.
+2021-09-24 19:59:47.807 +02:00 [INF] Entity Framework Core 5.0.10 initialized 'InvoiceDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-09-24 19:59:47.814 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2021-09-24 19:59:47.916 +02:00 [INF] Executed DbCommand (100ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2021-09-24 19:59:48.230 +02:00 [ERR] Failed executing DbCommand (50ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[Address], [a].[BusinessLogoBase64String], [a].[BusinessName], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[Surname], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2021-09-24 19:59:48.382 +02:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Blacklamp.Invoice.Infrastructure.Persistence.InvoiceDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'AspNetUsers'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__169_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__277_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(DbContext _, Boolean result, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:e230be8d-a288-4450-b6bf-57e911c3663b
+Error Number:208,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'AspNetUsers'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__169_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__277_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(DbContext _, Boolean result, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:e230be8d-a288-4450-b6bf-57e911c3663b
+Error Number:208,State:1,Class:16
+2021-09-24 20:04:48.978 +02:00 [INF] Starting Web Host
+2021-09-24 20:04:50.525 +02:00 [INF] User profile is available. Using 'C:\Users\vmaga\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-09-24 20:04:51.435 +02:00 [INF] Entity Framework Core 5.0.10 initialized 'InvoiceDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-09-24 20:04:51.848 +02:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2021-09-24 20:04:51.871 +02:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2021-09-24 20:04:51.875 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2021-09-24 20:04:51.878 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2021-09-24 20:04:51.885 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2021-09-24 20:04:51.899 +02:00 [INF] No migrations were applied. The database is already up to date.
+2021-09-24 20:04:51.906 +02:00 [INF] Entity Framework Core 5.0.10 initialized 'InvoiceDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-09-24 20:04:51.921 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2021-09-24 20:04:52.061 +02:00 [INF] Executed DbCommand (138ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2021-09-24 20:04:52.391 +02:00 [INF] Executed DbCommand (40ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[Address], [a].[BusinessLogoBase64String], [a].[BusinessName], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[Surname], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2021-09-24 20:04:52.416 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[Address], [a].[BusinessLogoBase64String], [a].[BusinessName], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[Surname], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2021-09-24 20:04:52.568 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (Size = 4000), @p6='?' (Size = 256), @p7='?' (DbType = Boolean), @p8='?' (Size = 4000), @p9='?' (DbType = Boolean), @p10='?' (DbType = DateTimeOffset), @p11='?' (Size = 256), @p12='?' (Size = 256), @p13='?' (Size = 4000), @p14='?' (Size = 4000), @p15='?' (DbType = Boolean), @p16='?' (Size = 4000), @p17='?' (Size = 4000), @p18='?' (DbType = Boolean), @p19='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [AspNetUsers] ([Id], [AccessFailedCount], [Address], [BusinessLogoBase64String], [BusinessName], [ConcurrencyStamp], [Email], [EmailConfirmed], [FirstName], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [SecurityStamp], [Surname], [TwoFactorEnabled], [UserName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19);
+2021-09-24 20:04:53.137 +02:00 [INF] Now listening on: https://localhost:7001
+2021-09-24 20:04:53.138 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-09-24 20:04:53.138 +02:00 [INF] Hosting environment: Development
+2021-09-24 20:04:53.139 +02:00 [INF] Content root path: C:\Development\Web\Invoice.Me.Api\Blacklamp.Invoice.Api
+2021-09-24 20:04:54.842 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7001/swagger - -
+2021-09-24 20:04:54.905 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7001/swagger - - - 301 0 - 67.2696ms
+2021-09-24 20:04:54.911 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7001/swagger/index.html - -
+2021-09-24 20:04:55.004 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7001/swagger/index.html - - - 200 - text/html;charset=utf-8 92.5930ms
+2021-09-24 20:04:55.075 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7001/swagger/swagger-ui.css - -
+2021-09-24 20:04:55.075 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7001/swagger/swagger-ui-standalone-preset.js - -
+2021-09-24 20:04:55.075 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7001/swagger/swagger-ui-bundle.js - -
+2021-09-24 20:04:55.133 +02:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2021-09-24 20:04:55.140 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7001/swagger/swagger-ui.css - - - 200 142933 text/css 64.9841ms
+2021-09-24 20:04:55.151 +02:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2021-09-24 20:04:55.156 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7001/swagger/swagger-ui-standalone-preset.js - - - 200 311804 application/javascript 80.7488ms
+2021-09-24 20:04:55.201 +02:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2021-09-24 20:04:55.202 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7001/swagger/swagger-ui-bundle.js - - - 200 986342 application/javascript 126.6759ms
+2021-09-24 20:04:55.534 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7001/swagger/v1/swagger.json - -
+2021-09-24 20:04:55.946 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7001/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 412.2683ms
+2021-09-24 20:05:58.234 +02:00 [INF] Starting Web Host
+2021-09-24 20:05:59.124 +02:00 [INF] User profile is available. Using 'C:\Users\vmaga\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-09-24 20:05:59.868 +02:00 [INF] Entity Framework Core 5.0.10 initialized 'InvoiceDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-09-24 20:06:00.116 +02:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2021-09-24 20:06:00.137 +02:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2021-09-24 20:06:00.142 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2021-09-24 20:06:00.144 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2021-09-24 20:06:00.151 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2021-09-24 20:06:00.165 +02:00 [INF] No migrations were applied. The database is already up to date.
+2021-09-24 20:06:00.173 +02:00 [INF] Entity Framework Core 5.0.10 initialized 'InvoiceDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-09-24 20:06:00.190 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2021-09-24 20:06:00.194 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2021-09-24 20:06:00.487 +02:00 [INF] Executed DbCommand (60ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[Address], [a].[BusinessLogoBase64String], [a].[BusinessName], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[Surname], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2021-09-24 20:06:00.598 +02:00 [INF] Executed DbCommand (28ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[Address], [a].[BusinessLogoBase64String], [a].[BusinessName], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[Surname], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2021-09-24 20:06:00.603 +02:00 [WRN] User validation failed: DuplicateUserName;DuplicateEmail.
+2021-09-24 20:06:00.802 +02:00 [INF] Now listening on: https://localhost:7001
+2021-09-24 20:06:00.802 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-09-24 20:06:00.803 +02:00 [INF] Hosting environment: Development
+2021-09-24 20:06:00.805 +02:00 [INF] Content root path: C:\Development\Web\Invoice.Me.Api\Blacklamp.Invoice.Api
+2021-09-24 20:06:01.537 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7001/swagger/index.html - -
+2021-09-24 20:06:01.618 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7001/swagger/index.html - - - 200 - text/html;charset=utf-8 85.5048ms
+2021-09-24 20:06:02.027 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7001/swagger/v1/swagger.json - -
+2021-09-24 20:06:02.120 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7001/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 92.5844ms
+2021-09-24 20:06:25.360 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7001/api/v1/User/Authenticate application/json 53
+2021-09-24 20:06:25.863 +02:00 [INF] Executing endpoint 'Blacklamp.Invoice.Authentication.Api.Controllers.UserController.AuthenticateAsync (Blacklamp.Invoice.Api)'
+2021-09-24 20:06:25.900 +02:00 [INF] Route matched with {action = "Authenticate", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[Blacklamp.Invoice.Authentication.Api.Contract.v1.Response.TokenResponse]] AuthenticateAsync(Blacklamp.Invoice.Authentication.Api.Contract.v1.Request.TokenRequest) on controller Blacklamp.Invoice.Authentication.Api.Controllers.UserController (Blacklamp.Invoice.Api).
+2021-09-24 20:06:26.153 +02:00 [INF] Executing action method Blacklamp.Invoice.Authentication.Api.Controllers.UserController.AuthenticateAsync (Blacklamp.Invoice.Api) - Validation state: "Valid"
+2021-09-24 20:06:26.198 +02:00 [INF] Entity Framework Core 5.0.10 initialized 'InvoiceDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-09-24 20:06:26.206 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[Address], [a].[BusinessLogoBase64String], [a].[BusinessName], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[Surname], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2021-09-24 20:06:26.223 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[Address], [a].[BusinessLogoBase64String], [a].[BusinessName], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[Surname], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2021-09-24 20:06:26.228 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[Address], [a].[BusinessLogoBase64String], [a].[BusinessName], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[Surname], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2021-09-24 20:06:26.315 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[@p19='?' (Size = 450), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p20='?' (Size = 4000), @p5='?' (Size = 256), @p6='?' (DbType = Boolean), @p7='?' (Size = 4000), @p8='?' (DbType = Boolean), @p9='?' (DbType = DateTimeOffset), @p10='?' (Size = 256), @p11='?' (Size = 256), @p12='?' (Size = 4000), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 4000), @p16='?' (Size = 4000), @p17='?' (DbType = Boolean), @p18='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [AspNetUsers] SET [AccessFailedCount] = @p0, [Address] = @p1, [BusinessLogoBase64String] = @p2, [BusinessName] = @p3, [ConcurrencyStamp] = @p4, [Email] = @p5, [EmailConfirmed] = @p6, [FirstName] = @p7, [LockoutEnabled] = @p8, [LockoutEnd] = @p9, [NormalizedEmail] = @p10, [NormalizedUserName] = @p11, [PasswordHash] = @p12, [PhoneNumber] = @p13, [PhoneNumberConfirmed] = @p14, [SecurityStamp] = @p15, [Surname] = @p16, [TwoFactorEnabled] = @p17, [UserName] = @p18
+WHERE [Id] = @p19 AND [ConcurrencyStamp] = @p20;
+SELECT @@ROWCOUNT;
+2021-09-24 20:06:26.557 +02:00 [INF] Executed action method Blacklamp.Invoice.Authentication.Api.Controllers.UserController.AuthenticateAsync (Blacklamp.Invoice.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 398.716ms.
+2021-09-24 20:06:26.566 +02:00 [INF] Executing OkObjectResult, writing value of type 'Blacklamp.Invoice.Core.Models.TokenResponseDto'.
+2021-09-24 20:06:26.582 +02:00 [INF] Executed action Blacklamp.Invoice.Authentication.Api.Controllers.UserController.AuthenticateAsync (Blacklamp.Invoice.Api) in 675.3955ms
+2021-09-24 20:06:26.585 +02:00 [INF] Executed endpoint 'Blacklamp.Invoice.Authentication.Api.Controllers.UserController.AuthenticateAsync (Blacklamp.Invoice.Api)'
+2021-09-24 20:06:26.589 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7001/api/v1/User/Authenticate application/json 53 - 200 - application/json;+charset=utf-8 1228.4989ms
+2021-09-24 20:06:46.675 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7001/api/v1/User/Authenticate application/json 53
+2021-09-24 20:06:46.677 +02:00 [INF] Executing endpoint 'Blacklamp.Invoice.Authentication.Api.Controllers.UserController.AuthenticateAsync (Blacklamp.Invoice.Api)'
+2021-09-24 20:06:46.678 +02:00 [INF] Route matched with {action = "Authenticate", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[Blacklamp.Invoice.Authentication.Api.Contract.v1.Response.TokenResponse]] AuthenticateAsync(Blacklamp.Invoice.Authentication.Api.Contract.v1.Request.TokenRequest) on controller Blacklamp.Invoice.Authentication.Api.Controllers.UserController (Blacklamp.Invoice.Api).
+2021-09-24 20:06:46.697 +02:00 [INF] Executing action method Blacklamp.Invoice.Authentication.Api.Controllers.UserController.AuthenticateAsync (Blacklamp.Invoice.Api) - Validation state: "Valid"
+2021-09-24 20:06:46.700 +02:00 [INF] Entity Framework Core 5.0.10 initialized 'InvoiceDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-09-24 20:06:46.706 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[Address], [a].[BusinessLogoBase64String], [a].[BusinessName], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[Surname], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2021-09-24 20:06:46.719 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[Address], [a].[BusinessLogoBase64String], [a].[BusinessName], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[Surname], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2021-09-24 20:06:46.725 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[Address], [a].[BusinessLogoBase64String], [a].[BusinessName], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[Surname], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2021-09-24 20:06:46.733 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@p19='?' (Size = 450), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p20='?' (Size = 4000), @p5='?' (Size = 256), @p6='?' (DbType = Boolean), @p7='?' (Size = 4000), @p8='?' (DbType = Boolean), @p9='?' (DbType = DateTimeOffset), @p10='?' (Size = 256), @p11='?' (Size = 256), @p12='?' (Size = 4000), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 4000), @p16='?' (Size = 4000), @p17='?' (DbType = Boolean), @p18='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [AspNetUsers] SET [AccessFailedCount] = @p0, [Address] = @p1, [BusinessLogoBase64String] = @p2, [BusinessName] = @p3, [ConcurrencyStamp] = @p4, [Email] = @p5, [EmailConfirmed] = @p6, [FirstName] = @p7, [LockoutEnabled] = @p8, [LockoutEnd] = @p9, [NormalizedEmail] = @p10, [NormalizedUserName] = @p11, [PasswordHash] = @p12, [PhoneNumber] = @p13, [PhoneNumberConfirmed] = @p14, [SecurityStamp] = @p15, [Surname] = @p16, [TwoFactorEnabled] = @p17, [UserName] = @p18
+WHERE [Id] = @p19 AND [ConcurrencyStamp] = @p20;
+SELECT @@ROWCOUNT;
+2021-09-24 20:12:36.748 +02:00 [INF] Starting Web Host
+2021-09-24 20:12:38.665 +02:00 [INF] User profile is available. Using 'C:\Users\vmaga\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-09-24 20:12:39.907 +02:00 [INF] Entity Framework Core 5.0.10 initialized 'InvoiceDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-09-24 20:12:40.467 +02:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2021-09-24 20:12:40.496 +02:00 [INF] Executed DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2021-09-24 20:12:40.500 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2021-09-24 20:12:40.502 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2021-09-24 20:12:40.510 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2021-09-24 20:12:40.531 +02:00 [INF] No migrations were applied. The database is already up to date.
+2021-09-24 20:12:40.545 +02:00 [INF] Entity Framework Core 5.0.10 initialized 'InvoiceDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-09-24 20:12:40.553 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2021-09-24 20:12:40.558 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2021-09-24 20:12:40.873 +02:00 [INF] Executed DbCommand (32ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[Address], [a].[BusinessLogoBase64String], [a].[BusinessName], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[Surname], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2021-09-24 20:12:40.960 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[Address], [a].[BusinessLogoBase64String], [a].[BusinessName], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[Surname], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2021-09-24 20:12:40.965 +02:00 [WRN] User validation failed: DuplicateUserName;DuplicateEmail.
+2021-09-24 20:12:41.438 +02:00 [INF] Now listening on: https://localhost:7001
+2021-09-24 20:12:41.439 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-09-24 20:12:41.440 +02:00 [INF] Hosting environment: Development
+2021-09-24 20:12:41.440 +02:00 [INF] Content root path: C:\Development\Web\Invoice.Me.Api\Blacklamp.Invoice.Api
+2021-09-24 20:12:42.927 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7001/swagger/index.html - -
+2021-09-24 20:12:43.045 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7001/swagger/index.html - - - 200 - text/html;charset=utf-8 120.0323ms
+2021-09-24 20:12:43.424 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7001/swagger/v1/swagger.json - -
+2021-09-24 20:12:43.622 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7001/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 198.4575ms
+2021-09-24 20:13:01.483 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7001/api/v1/User/Authenticate application/json 53
+2021-09-24 20:13:01.637 +02:00 [INF] Executing endpoint 'Blacklamp.Invoice.Authentication.Api.Controllers.UserController.AuthenticateAsync (Blacklamp.Invoice.Api)'
+2021-09-24 20:13:01.673 +02:00 [INF] Route matched with {action = "Authenticate", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[Blacklamp.Invoice.Authentication.Api.Contract.v1.Response.TokenResponse]] AuthenticateAsync(Blacklamp.Invoice.Authentication.Api.Contract.v1.Request.TokenRequest) on controller Blacklamp.Invoice.Authentication.Api.Controllers.UserController (Blacklamp.Invoice.Api).
+2021-09-24 20:13:01.956 +02:00 [INF] Executing action method Blacklamp.Invoice.Authentication.Api.Controllers.UserController.AuthenticateAsync (Blacklamp.Invoice.Api) - Validation state: "Valid"
+2021-09-24 20:13:05.305 +02:00 [INF] Entity Framework Core 5.0.10 initialized 'InvoiceDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-09-24 20:13:05.311 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[Address], [a].[BusinessLogoBase64String], [a].[BusinessName], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[Surname], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2021-09-24 20:13:05.328 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[Address], [a].[BusinessLogoBase64String], [a].[BusinessName], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[Surname], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2021-09-24 20:13:05.334 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[Address], [a].[BusinessLogoBase64String], [a].[BusinessName], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[Surname], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2021-09-24 20:13:05.421 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@p19='?' (Size = 450), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p20='?' (Size = 4000), @p5='?' (Size = 256), @p6='?' (DbType = Boolean), @p7='?' (Size = 4000), @p8='?' (DbType = Boolean), @p9='?' (DbType = DateTimeOffset), @p10='?' (Size = 256), @p11='?' (Size = 256), @p12='?' (Size = 4000), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 4000), @p16='?' (Size = 4000), @p17='?' (DbType = Boolean), @p18='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [AspNetUsers] SET [AccessFailedCount] = @p0, [Address] = @p1, [BusinessLogoBase64String] = @p2, [BusinessName] = @p3, [ConcurrencyStamp] = @p4, [Email] = @p5, [EmailConfirmed] = @p6, [FirstName] = @p7, [LockoutEnabled] = @p8, [LockoutEnd] = @p9, [NormalizedEmail] = @p10, [NormalizedUserName] = @p11, [PasswordHash] = @p12, [PhoneNumber] = @p13, [PhoneNumberConfirmed] = @p14, [SecurityStamp] = @p15, [Surname] = @p16, [TwoFactorEnabled] = @p17, [UserName] = @p18
+WHERE [Id] = @p19 AND [ConcurrencyStamp] = @p20;
+SELECT @@ROWCOUNT;
+2021-09-24 20:13:13.352 +02:00 [INF] Executed action method Blacklamp.Invoice.Authentication.Api.Controllers.UserController.AuthenticateAsync (Blacklamp.Invoice.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 11390.1152ms.
+2021-09-24 20:13:13.362 +02:00 [INF] Executing OkObjectResult, writing value of type 'Blacklamp.Invoice.Core.Models.TokenResponseDto'.
+2021-09-24 20:13:13.381 +02:00 [INF] Executed action Blacklamp.Invoice.Authentication.Api.Controllers.UserController.AuthenticateAsync (Blacklamp.Invoice.Api) in 11698.7328ms
+2021-09-24 20:13:13.383 +02:00 [INF] Executed endpoint 'Blacklamp.Invoice.Authentication.Api.Controllers.UserController.AuthenticateAsync (Blacklamp.Invoice.Api)'
+2021-09-24 20:13:13.387 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7001/api/v1/User/Authenticate application/json 53 - 200 - application/json;+charset=utf-8 11903.4497ms

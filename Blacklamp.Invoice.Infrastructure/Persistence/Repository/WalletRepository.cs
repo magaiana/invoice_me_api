@@ -7,17 +7,17 @@ namespace Blacklamp.Invoice.Infrastructure.Persistence.Repository
 {
 	public class WalletRepository : IWalletRepository
 	{
-		private readonly AssessmentDbContext _dbContext;
-		public WalletRepository(AssessmentDbContext dbContext)
+		private readonly InvoiceDbContext _dbContext;
+		public WalletRepository(InvoiceDbContext dbContext)
 		{
 			_dbContext = dbContext;
 		}
 
 		public async Task<bool> CreateWallet(WalletDetails wallet)
 		{
-			_dbContext.WalletDetails.Add(wallet);
-			var changes = await _dbContext.SaveChangesAsync();
-			return changes > 0;
+			//_dbContext.WalletDetails.Add(wallet);
+			//var changes = await _dbContext.SaveChangesAsync();
+			return false;
 		}
 
 		public async Task<bool> UpdateWalletDetailsAsync(WalletDetails wallet)
@@ -29,8 +29,8 @@ namespace Blacklamp.Invoice.Infrastructure.Persistence.Repository
 
 		public async Task<WalletDetails> GetWalletBalanceForUserAsync(string userId)
 		{
-			var wallet = await _dbContext.WalletDetails.FirstOrDefaultAsync(x => x.UserId == userId);
-			return wallet;
+			//var wallet = await _dbContext.WalletDetails.FirstOrDefaultAsync(x => x.UserId == userId);
+			return null;
 		}
 	}
 }

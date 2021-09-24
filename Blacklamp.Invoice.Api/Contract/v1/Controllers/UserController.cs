@@ -25,10 +25,10 @@ namespace Blacklamp.Invoice.Authentication.Api.Controllers
 		}
 
 		[AllowAnonymous]
-		[HttpGet("Authenticate")]
+		[HttpPost("Authenticate")]
 		[ProducesResponseType(Microsoft.AspNetCore.Http.StatusCodes.Status200OK)]
 		[ProducesResponseType(Microsoft.AspNetCore.Http.StatusCodes.Status400BadRequest)]
-		[ApiConventionMethod(typeof(DefaultApiConventions), nameof(DefaultApiConventions.Get))]
+		[ApiConventionMethod(typeof(DefaultApiConventions), nameof(DefaultApiConventions.Post))]
 		public async Task<ActionResult<TokenResponse>> AuthenticateAsync([FromBody] TokenRequest request)
 		{
 			var response = await _userService.Authenticate(_mapper.Map<TokenRequestDto>(request));
