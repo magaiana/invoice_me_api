@@ -1,12 +1,12 @@
-﻿using AutoMapper;
-using Blacklamp.Invoice.Authentication.Api.Contract.v1.Request;
-using Blacklamp.Invoice.Authentication.Api.Contract.v1.Response;
+﻿using System;
+using AutoMapper;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
 using Blacklamp.Invoice.Core.Models;
 using Blacklamp.Invoice.Core.Services;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Threading.Tasks;
+using Blacklamp.Invoice.Authentication.Api.Contract.v1.Request;
+using Blacklamp.Invoice.Authentication.Api.Contract.v1.Response;
 
 namespace Blacklamp.Invoice.Authentication.Api.Controllers
 {
@@ -32,11 +32,12 @@ namespace Blacklamp.Invoice.Authentication.Api.Controllers
 		public async Task<ActionResult<TokenResponse>> AuthenticateAsync([FromBody] TokenRequest request)
 		{
 			var response = await _userService.Authenticate(_mapper.Map<TokenRequestDto>(request));
-			if(response == null)
+			if(response != null)
 			{
-				return NotFound("Invalid username or password");
+				var tokenResponse = _mapper.Map<TokenResponse>(response);
+				return Ok(tokenResponse);
 			}
-			return Ok(response);
+			return NotFound("Invalid username or password");
 		}
 	}
 }
