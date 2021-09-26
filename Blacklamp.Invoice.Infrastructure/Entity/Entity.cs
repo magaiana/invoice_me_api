@@ -1,4 +1,4 @@
-﻿namespace Blacklamp.Invoice.Infrastructure.Models
+﻿namespace Blacklamp.Invoice.Infrastructure.Entity
 {
 	public class Entity
 	{

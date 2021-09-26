@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Blacklamp.Invoice.Authentication.Api.Contract.v1.Request;
 using Blacklamp.Invoice.Authentication.Api.Contract.v1.Response;
-using Blacklamp.Invoice.Core.Models;
+using Blacklamp.Invoice.Core.Dtos;
 
 namespace Blacklamp.Invoice.Authentication.Api.Utilities
 {

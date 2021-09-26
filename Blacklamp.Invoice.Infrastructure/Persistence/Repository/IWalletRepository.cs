@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using Blacklamp.Invoice.Infrastructure.Models;
+using Blacklamp.Invoice.Infrastructure.Entity;
 
 namespace Blacklamp.Invoice.Infrastructure.Persistence.Repository
 {

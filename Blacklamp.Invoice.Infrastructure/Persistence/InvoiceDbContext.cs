@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Blacklamp.Invoice.Infrastructure.Models;
+using Blacklamp.Invoice.Infrastructure.Entity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace Blacklamp.Invoice.Infrastructure.Persistence

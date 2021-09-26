@@ -1,7 +1,7 @@
 using AutoMapper;
 using Blacklamp.Invoice.Authentication.Api.Contract.v1.Request;
 using Blacklamp.Invoice.Authentication.Api.Controllers;
-using Blacklamp.Invoice.Core.Models;
+using Blacklamp.Invoice.Core.Dtos;
 using Blacklamp.Invoice.Core.Services;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
@@ -35,7 +35,7 @@ namespace Blacklamp.Invoice.Authentication.Tests
 		{
 			var request = new TokenRequest { Username = "admin@mail.com", Password = "P@ssword01" };
 			var requestDto = new TokenRequestDto { Username = "admin@mail.com", Password = "P@ssword01" };
-			var response = new TokenResponseDto();// ("aaaaabbbbbbbbccc1111111", "admin@mail.com", "asdffoeroeoreosfjdfdkjhfs");
+			var response = new TokenResponseDto("aaaaabbbbbbbbccc1111111", "admin@mail.com", "asdffoeroeoreosfjdfdkjhfs", true);
 						
 			var mockMapper = new Mock<IMapper>();
 			var mockAuthService = new Mock<IUserService>();

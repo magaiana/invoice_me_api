@@ -13,7 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Blacklamp.Invoice.Infrastructure.Persistence;
 using Blacklamp.Invoice.Infrastructure.Persistence.Repository;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Blacklamp.Invoice.Infrastructure.Models;
+using Blacklamp.Invoice.Infrastructure.Entity;
 
 namespace Blacklamp.Invoice.Authentication.Api.Utilities
 {

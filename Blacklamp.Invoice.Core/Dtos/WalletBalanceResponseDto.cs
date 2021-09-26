@@ -1,4 +1,4 @@
-﻿namespace Blacklamp.Invoice.Core.Models
+﻿namespace Blacklamp.Invoice.Core.Dtos
 {
 	public class WalletBalanceResponseDto
 	{

@@ -21,7 +21,7 @@ namespace Blacklamp.Invoice.Infrastructure.Migrations
                 .HasAnnotation("ProductVersion", "5.0.10")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Blacklamp.Invoice.Infrastructure.Models.UserProfile", b =>
+            modelBuilder.Entity("Blacklamp.Invoice.Infrastructure.Entity.UserProfile", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -243,7 +243,7 @@ namespace Blacklamp.Invoice.Infrastructure.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("Blacklamp.Invoice.Infrastructure.Models.UserProfile", null)
+                    b.HasOne("Blacklamp.Invoice.Infrastructure.Entity.UserProfile", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -252,7 +252,7 @@ namespace Blacklamp.Invoice.Infrastructure.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("Blacklamp.Invoice.Infrastructure.Models.UserProfile", null)
+                    b.HasOne("Blacklamp.Invoice.Infrastructure.Entity.UserProfile", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -267,7 +267,7 @@ namespace Blacklamp.Invoice.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Blacklamp.Invoice.Infrastructure.Models.UserProfile", null)
+                    b.HasOne("Blacklamp.Invoice.Infrastructure.Entity.UserProfile", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -276,7 +276,7 @@ namespace Blacklamp.Invoice.Infrastructure.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("Blacklamp.Invoice.Infrastructure.Models.UserProfile", null)
+                    b.HasOne("Blacklamp.Invoice.Infrastructure.Entity.UserProfile", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)

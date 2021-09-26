@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using Blacklamp.Invoice.Core.Models;
+using Blacklamp.Invoice.Core.Dtos;
 using Microsoft.EntityFrameworkCore;
 
 namespace Blacklamp.Invoice.Infrastructure.Persistence.Repository

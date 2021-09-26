@@ -1,7 +1,7 @@
-using Blacklamp.Invoice.Core.Models;
+using Blacklamp.Invoice.Core.Dtos;
 using Blacklamp.Invoice.Core.Services;
 using Blacklamp.Invoice.Infrastructure.Configuration;
-using Blacklamp.Invoice.Infrastructure.Models;
+using Blacklamp.Invoice.Infrastructure.Entity;
 using Blacklamp.Invoice.Infrastructure.Persistence.Repository;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;

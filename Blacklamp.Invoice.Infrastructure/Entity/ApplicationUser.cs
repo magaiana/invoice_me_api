@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace Blacklamp.Invoice.Infrastructure.Models
+namespace Blacklamp.Invoice.Infrastructure.Entity
 {
 	public class UserProfile : IdentityUser
 	{

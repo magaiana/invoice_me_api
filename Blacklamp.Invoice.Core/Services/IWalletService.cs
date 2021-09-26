@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using Blacklamp.Invoice.Core.Models;
+using Blacklamp.Invoice.Core.Dtos;
 
 namespace Blacklamp.Invoice.Core.Services
 {

@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using AutoMapper;
-using Blacklamp.Invoice.Core.Models;
-using Blacklamp.Invoice.Infrastructure.Models;
+using Blacklamp.Invoice.Core.Dtos;
+using Blacklamp.Invoice.Infrastructure.Entity;
 using Blacklamp.Invoice.Infrastructure.Persistence.Repository;
 
 namespace Blacklamp.Invoice.Core.Services

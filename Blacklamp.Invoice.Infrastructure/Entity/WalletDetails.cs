@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Blacklamp.Invoice.Infrastructure.Models
+namespace Blacklamp.Invoice.Infrastructure.Entity
 {
 	public class WalletDetails
 	{

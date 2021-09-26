@@ -1,6 +1,6 @@
-﻿namespace Blacklamp.Invoice.Core.Models
+﻿namespace Blacklamp.Invoice.Core.Dtos
 {
-	public class ProductDto
+	public class Product
 	{
 		public int Id { get; set; }
 		public string Description { get; set; }

@@ -2,7 +2,7 @@
 using AutoMapper;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Blacklamp.Invoice.Core.Models;
+using Blacklamp.Invoice.Core.Dtos;
 using Blacklamp.Invoice.Core.Services;
 using Microsoft.AspNetCore.Authorization;
 using Blacklamp.Invoice.Authentication.Api.Contract.v1.Request;
