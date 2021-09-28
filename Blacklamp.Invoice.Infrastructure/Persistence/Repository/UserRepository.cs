@@ -27,6 +27,30 @@ namespace Blacklamp.Invoice.Infrastructure.Persistence.Repository
 			return null;
 		}
 
+		public async Task<bool> CreateUser(UserProfile userProfile)
+		{
+			var result = await _userManager.CreateAsync(userProfile);
+			return result.Succeeded;
+		}
+
+		public async Task<bool> ConfirmEmail(UserProfile userProfile)
+		{
+			var result = await _userManager.UpdateAsync(userProfile);
+			return result.Succeeded;
+		}
+
+		public async Task<bool> ConfirmCell(UserProfile userProfile)
+		{
+			var result = await _userManager.UpdateAsync(userProfile);
+			return result.Succeeded;
+		}
+
+		public async Task<UserProfile> GetUserByEmail(string email)
+		{
+			var result = await _userManager.FindByEmailAsync(email);
+			return result;
+		}
+
 		private async Task<(bool, UserProfile)> IsValidUser(string username, string password)
 		{
 			var user = await _userManager.FindByEmailAsync(username);

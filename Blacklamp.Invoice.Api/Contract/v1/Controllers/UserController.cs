@@ -7,6 +7,7 @@ using Blacklamp.Invoice.Core.Services;
 using Microsoft.AspNetCore.Authorization;
 using Blacklamp.Invoice.Authentication.Api.Contract.v1.Request;
 using Blacklamp.Invoice.Authentication.Api.Contract.v1.Response;
+using Blacklamp.Invoice.Api.Contract.v1.Request;
 
 namespace Blacklamp.Invoice.Authentication.Api.Controllers
 {
@@ -37,7 +38,24 @@ namespace Blacklamp.Invoice.Authentication.Api.Controllers
 				var tokenResponse = _mapper.Map<TokenResponse>(response);
 				return Ok(tokenResponse);
 			}
-			return NotFound("Invalid username or password");
+			return NotFound("Incorrect username or password");
+		}
+
+		[HttpPost]
+		[AllowAnonymous]
+		[HttpPost("SignUp")]
+		[ProducesResponseType(Microsoft.AspNetCore.Http.StatusCodes.Status200OK)]
+		[ProducesResponseType(Microsoft.AspNetCore.Http.StatusCodes.Status400BadRequest)]
+		[ApiConventionMethod(typeof(DefaultApiConventions), nameof(DefaultApiConventions.Post))]
+		public async Task<ActionResult<TokenResponse>> Signup([FromBody] SignupRequest request)
+		{
+			var response = await _userService.Signup(_mapper.Map<UserProfileDto>(request));
+			if (response != null)
+			{
+				var tokenResponse = _mapper.Map<TokenResponse>(response);
+				return Ok(tokenResponse);
+			}
+			return BadRequest();
 		}
 	}
 }

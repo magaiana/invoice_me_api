@@ -1,28 +1,26 @@
-﻿using Blacklamp.Invoice.Infrastructure.Configuration;
-using Blacklamp.Invoice.Core.Dtos;
-using Blacklamp.Invoice.Infrastructure.Entity;
+﻿using Blacklamp.Invoice.Core.Dtos;
 using Blacklamp.Invoice.Infrastructure.Persistence.Repository;
-using Microsoft.Extensions.Options;
-using Microsoft.IdentityModel.Tokens;
 using System;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
+using Blacklamp.Invoice.Core.Common;
+using Blacklamp.Invoice.Infrastructure.Entity;
+using AutoMapper;
 
 namespace Blacklamp.Invoice.Core.Services
 {
 	public class UserService : IUserService
 	{
-		private readonly JwtSettings _token;
+		private readonly ITokenHelper _tokenHelper;
+		private readonly IMapper _mapper;
 		private readonly ILogger<UserService> _logger;
 		private readonly IUserRepository _authenticationRepository;
-		public UserService(IUserRepository authenticationRepository, IOptions<JwtSettings> options, ILogger<UserService> logger)
+		public UserService(IUserRepository authenticationRepository, ITokenHelper tokenHelper, ILogger<UserService> logger, IMapper mapper)
 		{
 			_logger = logger ?? throw new ArgumentNullException(nameof(logger));
+			_mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
+			_tokenHelper = tokenHelper ?? throw new ArgumentNullException(nameof(tokenHelper));
 			_authenticationRepository = authenticationRepository ?? throw new ArgumentNullException(nameof(authenticationRepository));
-			_token = options.Value ?? throw new ArgumentNullException(nameof(options.Value));
 		}
 
 		public async Task<TokenResponseDto> Authenticate(TokenRequestDto request)
@@ -32,8 +30,8 @@ namespace Blacklamp.Invoice.Core.Services
 				var user = await _authenticationRepository.Authenticate(request.Username, request.Password);
 				if (user != null)
 				{
-					var token = GenerateJwtToken(user);
-					return new TokenResponseDto(user.UserName, user.Email, token, true);
+					var token = _tokenHelper.GenerateJwtToken(user);
+					return new TokenResponseDto(user.Id, user.UserName, user.Email, token, true, false, false);
 				}
 				return null;
 			}
@@ -44,34 +42,26 @@ namespace Blacklamp.Invoice.Core.Services
 			}
 		}
 
-		private string GenerateJwtToken(UserResponseDto user)
+		public async Task<TokenResponseDto> Signup(UserProfileDto user)
 		{
 			try
 			{
-				var secret = Encoding.ASCII.GetBytes(_token.Secret);
-
-				var handler = new JwtSecurityTokenHandler();
-				var descriptor = new SecurityTokenDescriptor
+				var succeeded = await _authenticationRepository.CreateUser(_mapper.Map<UserProfile>(user));
+				if (succeeded)
 				{
-					Issuer = _token.Issuer,
-					Audience = _token.Audience,
-					Subject = new ClaimsIdentity(new[]
-					{
-					new Claim("UserId", user.Id),
-					new Claim("Email", user.Email),
-					new Claim(ClaimTypes.Name, user.UserName)
-				}),
-					Expires = DateTime.UtcNow.AddMinutes(_token.Expiry),
-					SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(secret),
-						SecurityAlgorithms.HmacSha256Signature)
-				};
-
-				var token = handler.CreateToken(descriptor);
-				return handler.WriteToken(token);
+					var _user = await _authenticationRepository.GetUserByEmail(user.Email);
+					if (_user != null) {
+						var token = _tokenHelper.GenerateJwtToken(_mapper.Map<UserResponseDto>(_user));
+						return new TokenResponseDto(user.Id, user.UserName, user.Email, token, true, false, false);
+					}
+					return null;
+				}
+				return null;
 			}
-			catch (Exception)
+			catch (Exception ex)
 			{
-				throw;
+				_logger.LogError("Sign Up Error: ", ex);
+				return null;
 			}
 		}
 	}

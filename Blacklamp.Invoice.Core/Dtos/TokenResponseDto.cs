@@ -4,9 +4,9 @@ using Blacklamp.Invoice.Infrastructure.Entity;
 
 namespace Blacklamp.Invoice.Core.Dtos
 {
-	public record TokenResponseDto(string Username,
+	public record TokenResponseDto(string Id,string Username,
 		string Email,
 		string Token,
-		bool IsActive
+		bool IsActive, bool IsEmailComfirmed, bool IsPhoneNuberConfirmed
 	);
 }

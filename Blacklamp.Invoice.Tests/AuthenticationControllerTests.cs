@@ -35,8 +35,8 @@ namespace Blacklamp.Invoice.Authentication.Tests
 		{
 			var request = new TokenRequest { Username = "admin@mail.com", Password = "P@ssword01" };
 			var requestDto = new TokenRequestDto { Username = "admin@mail.com", Password = "P@ssword01" };
-			var response = new TokenResponseDto("aaaaabbbbbbbbccc1111111", "admin@mail.com", "asdffoeroeoreosfjdfdkjhfs", true);
-						
+			var response = new TokenResponseDto("aaaaabbbbbbbbccc1111111", "admin@mail.com", "admin@mail.com", "asdffoeroeoreosfjdfdkjhfs", true, false, false);
+
 			var mockMapper = new Mock<IMapper>();
 			var mockAuthService = new Mock<IUserService>();
 
